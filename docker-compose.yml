@@ -1,0 +1,80 @@
+services:
+
+  postgres:
+    build:
+      context: ./invoicedoc-backend/postgres
+      dockerfile: Dockerfile
+    image: invoicedoc-postgres:local
+    container_name: invoicedoc-postgres
+    env_file:
+      - .env.postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - invoicedoc
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  backend:
+    build:
+      context: .
+      dockerfile: invoicedoc-backend/Dockerfile
+    image: invoicedoc-backend:local
+    container_name: invoicedoc-backend
+    env_file:
+      - .env.backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    expose:
+      - "8080"
+    networks:
+      - invoicedoc
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  frontend:
+    build:
+      context: ./invoicedoc-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /v1
+    image: invoicedoc-frontend:local
+    container_name: invoicedoc-frontend
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "3000:3000"
+    networks:
+      - invoicedoc
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:3000/ > /dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+networks:
+  invoicedoc:
+    driver: bridge
+
+volumes:
+  pgdata:

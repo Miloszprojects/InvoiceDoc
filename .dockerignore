@@ -1,0 +1,28 @@
+# pliki z danymi środowiskowymi – nie kopiujemy ich do obrazów
+.env.postgres
+.env.backend
+
+# Maven
+target
+**/target
+
+# Node
+node_modules
+**/node_modules
+
+# artefakty frontendu
+dist
+frontend/dist
+invoicedoc-frontend/dist
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+*.iml
+
+# logi / śmieci
+*.log
+*.tmp
