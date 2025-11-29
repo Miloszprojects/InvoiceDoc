@@ -1,5 +1,15 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET}
+    expiration-seconds: ${APP_JWT_EXPIRATION_SECONDS:3600}
+  crypto:
+    secret: ${APP_CRYPTO_SECRET}
