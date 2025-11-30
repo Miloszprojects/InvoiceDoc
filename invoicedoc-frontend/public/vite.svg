@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="transparent"/>
+
+    <g id="gear">
+        <circle cx="35" cy="65" r="15" fill="#C67C00"/>
+        <path d="M49.44 60.14L54.7 57.04C55.76 56.41 55.76 54.89 54.7 54.26L49.44 51.16C48.38 50.53 47.08 51.36 47.08 52.61V59.49C47.08 60.74 48.38 61.57 49.44 60.94Z" fill="#8B4513"/>
+        <path d="M49.44 69.86L54.7 72.96C55.76 73.59 55.76 75.11 54.7 75.74L49.44 78.84C48.38 79.47 47.08 78.64 47.08 77.39V70.51C47.08 69.26 48.38 68.43 49.44 69.06Z" fill="#8B4513"/>
+        <path d="M20.56 60.14L15.3 57.04C14.24 56.41 14.24 54.89 15.3 54.26L20.56 51.16C21.62 50.53 22.92 51.36 22.92 52.61V59.49C22.92 60.74 21.62 61.57 20.56 60.94Z" fill="#8B4513"/>
+        <path d="M20.56 69.86L15.3 72.96C14.24 73.59 14.24 75.11 15.3 75.74L20.56 78.84C21.62 79.47 22.92 78.64 22.92 77.39V70.51C22.92 69.26 21.62 68.43 20.56 69.06Z" fill="#8B4513"/>
+        <path d="M35 84C36.38 84 37.5 82.88 37.5 81.5V74C37.5 72.62 36.38 71.5 35 71.5C33.62 71.5 32.5 72.62 32.5 74V81.5C32.5 82.88 33.62 84 35 84Z" fill="#8B4513"/>
+        <path d="M35 48.5C36.38 48.5 37.5 47.38 37.5 46V38.5C37.5 37.12 36.38 36 35 36C33.62 36 32.5 37.12 32.5 38.5V46C32.5 47.38 33.62 48.5 35 48.5Z" fill="#8B4513"/>
+    </g>
+
+    <g id="invoice">
+        <rect x="39" y="16" width="45" height="60" rx="3" fill="#FFC300" stroke="#8B4513" stroke-width="2"/>
+        <path d="M78 16L84 22V16H78Z" fill="#8B4513"/>
+
+        <rect x="45" y="30" width="30" height="3" rx="1.5" fill="#8B4513"/>
+        <rect x="45" y="38" width="25" height="3" rx="1.5" fill="#8B4513"/>
+        <rect x="45" y="46" width="35" height="3" rx="1.5" fill="#8B4513"/>
+        <rect x="45" y="54" width="28" height="3" rx="1.5" fill="#8B4513"/>
+
+        <text x="45" y="24" font-family="Arial, sans-serif" font-size="10" fill="#228B22" font-weight="bold">PLN</text>
+
+        <path d="M50 63 L55 68 L65 58" stroke="#228B22" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+
+</svg>
