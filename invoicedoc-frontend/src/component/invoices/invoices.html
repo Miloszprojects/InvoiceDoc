@@ -1,0 +1,219 @@
+<section class="invoices">
+    <header class="invoices__header">
+        <h1>Invoices</h1>
+        <p>
+            Create invoices for your organisation using saved seller profiles and contractors.
+        </p>
+    </header>
+
+    <div class="invoices__layout">
+        <div class="invoices__list">
+            <div class="invoices__list-header">
+                <h2>Recent invoices</h2>
+                <p class="invoices__list-subtitle">
+                    Latest invoices issued by this organisation.
+                </p>
+            </div>
+
+            <div class="invoices__list-body" data-invoices-list>
+            </div>
+        </div>
+
+        <form id="invoice-form" class="invoices__form" novalidate>
+            <div class="invoices__form-header">
+                <h2>Create new invoice</h2>
+                <p>
+                    Pick seller profile and buyer, then add line items. Number will be generated automatically.
+                </p>
+            </div>
+
+            <div class="invoices__section">
+                <h3 class="invoices__section-title">Parties</h3>
+
+                <div class="invoices__grid">
+                    <div class="inv-field inv-field--full">
+                        <label for="invoice-seller">
+                            Seller profile <span>*</span>
+                        </label>
+                        <select id="invoice-seller" class="inv-input">
+                            <option value="">Select seller profile…</option>
+                        </select>
+                        <p class="inv-help">
+                            Seller profiles are configured in <strong>Organisation settings</strong>.
+                        </p>
+                    </div>
+
+                    <div class="inv-field inv-field--full">
+                        <label for="invoice-buyer">
+                            Buyer (contractor) <span>*</span>
+                        </label>
+                        <select id="invoice-buyer" class="inv-input">
+                            <option value="">Select contractor…</option>
+                        </select>
+                        <p class="inv-help">
+                            Contractors can be managed on the <strong>Contractors</strong> page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoices__section">
+                <h3 class="invoices__section-title">Dates & payment</h3>
+
+                <div class="invoices__grid">
+                    <div class="inv-field">
+                        <label for="invoice-issue-date">
+                            Issue date <span>*</span>
+                        </label>
+                        <input id="invoice-issue-date" class="inv-input" type="date" />
+                    </div>
+
+                    <div class="inv-field">
+                        <label for="invoice-sale-date">
+                            Sale date <span>*</span>
+                        </label>
+                        <input id="invoice-sale-date" class="inv-input" type="date" />
+                    </div>
+
+                    <div class="inv-field">
+                        <label for="invoice-due-date">
+                            Due date <span>*</span>
+                        </label>
+                        <input id="invoice-due-date" class="inv-input" type="date" />
+                    </div>
+
+                    <div class="inv-field">
+                        <label for="invoice-payment-method">
+                            Payment method <span>*</span>
+                        </label>
+                        <select id="invoice-payment-method" class="inv-input">
+                            <option value="BANK_TRANSFER">Bank transfer</option>
+                            <option value="CASH">Cash</option>
+                            <option value="CARD">Card</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="inv-field">
+                        <label for="invoice-currency">
+                            Currency <span>*</span>
+                        </label>
+                        <input
+                                id="invoice-currency"
+                                class="inv-input"
+                                type="text"
+                                placeholder="PLN"
+                        />
+                    </div>
+
+                    <div class="inv-field inv-field--checkbox">
+                        <label>
+                            <input id="invoice-reverse-charge" type="checkbox" />
+                            Reverse charge
+                        </label>
+                    </div>
+
+                    <div class="inv-field inv-field--checkbox">
+                        <label>
+                            <input id="invoice-split-payment" type="checkbox" />
+                            Split payment (MPP)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoices__section">
+                <h3 class="invoices__section-title">Line items</h3>
+
+                <div class="inv-items">
+                    <div class="inv-items__header-row">
+                        <span>Description</span>
+                        <span>Qty</span>
+                        <span>Unit</span>
+                        <span>Net unit</span>
+                        <span>VAT %</span>
+                        <span>Actions</span>
+                    </div>
+                    <div class="inv-items__body" data-items-body>
+                    </div>
+                    <button type="button" class="inv-items__add-btn" id="invoice-add-item-btn">
+                        + Add item
+                    </button>
+                </div>
+            </div>
+
+            <div class="invoices__section">
+                <h3 class="invoices__section-title">Notes & totals</h3>
+
+                <div class="invoices__grid">
+                    <div class="inv-field inv-field--full">
+                        <label for="invoice-notes">Notes (optional)</label>
+                        <textarea
+                                id="invoice-notes"
+                                class="inv-input inv-input--textarea"
+                                rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div class="inv-summary">
+                        <div class="inv-summary__row">
+                            <span>Net total:</span>
+                            <strong data-total-net>0.00</strong>
+                        </div>
+                        <div class="inv-summary__row">
+                            <span>VAT total:</span>
+                            <strong data-total-vat>0.00</strong>
+                        </div>
+                        <div class="inv-summary__row inv-summary__row--highlight">
+                            <span>Gross total:</span>
+                            <strong data-total-gross>0.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoices__section">
+                <h3 class="invoices__section-title">Import from JSON</h3>
+                <div class="inv-import">
+                    <div class="inv-import__text">
+                        <p>
+                            Upload a JSON file to automatically create a seller profile and contractor
+                            and pre-fill this invoice.
+                        </p>
+                        <p class="inv-import__hint">
+                            File must follow the import format used in project documentation.
+                        </p>
+                    </div>
+                    <div class="inv-import__controls">
+                        <label for="invoice-import-file" class="inv-import__file-label">
+                            Choose JSON file
+                            <input
+                                    type="file"
+                                    id="invoice-import-file"
+                                    accept="application/json"
+                                    class="inv-import__file"
+                            />
+                        </label>
+
+                        <button
+                                type="button"
+                                class="inv-import__btn"
+                                id="invoice-import-btn"
+                        >
+                            Import JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoices__footer">
+                <button type="submit" class="btn btn-primary" id="invoice-save-btn">
+                    Create invoice
+                </button>
+            </div>
+
+            <div class="inv-message inv-message--error" id="invoice-error" hidden></div>
+            <div class="inv-message inv-message--success" id="invoice-success" hidden></div>
+        </form>
+    </div>
+</section>

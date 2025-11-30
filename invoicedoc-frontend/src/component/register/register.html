@@ -1,0 +1,128 @@
+<section class="auth-layout">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Create your account</h1>
+            <p>
+                Start your free trial and invite your accountant later.
+                System admin is built-in and managed by InvoiceApp.
+            </p>
+        </div>
+
+        <form class="auth-form" id="register-form" novalidate>
+            <div class="auth-grid">
+                <div class="auth-field">
+                    <label for="fullName">Full name</label>
+                    <input
+                            id="fullName"
+                            name="fullName"
+                            type="text"
+                            autocomplete="name"
+                            required
+                    />
+                </div>
+
+                <div class="auth-field">
+                    <label for="email">Work email</label>
+                    <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                    />
+                </div>
+
+                <div class="auth-field">
+                    <label for="organisation">Organisation name</label>
+                    <input
+                            id="organisation"
+                            name="organisation"
+                            type="text"
+                            autocomplete="organization"
+                            required
+                    />
+                </div>
+
+                <div class="auth-field">
+                    <label for="password">Password</label>
+                    <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                            minlength="8"
+                    />
+                    <small>At least 8 characters.</small>
+                </div>
+
+                <div class="auth-field">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                    />
+                </div>
+            </div>
+
+            <fieldset class="role-group">
+                <legend>Choose your role</legend>
+                <p class="role-group__hint">
+                    You can add more Admins, Owners or Accountants
+                    to this organisation later.
+                </p>
+
+                <label class="role-option">
+                    <input type="radio" name="role" value="ADMIN" checked />
+                    <div class="role-option__body">
+                        <span class="role-option__title">Admin</span>
+                        <span class="role-option__desc">
+                            Creates and manages organisations. Can remove them and
+                            approve Owners and Accountants.
+                        </span>
+                    </div>
+                </label>
+
+                <label class="role-option">
+                    <input type="radio" name="role" value="OWNER" />
+                    <div class="role-option__body">
+                        <span class="role-option__title">Owner</span>
+                        <span class="role-option__desc">
+                            Full access to invoices, payments and company settings
+                            for this organisation, once approved by an Admin.
+                        </span>
+                    </div>
+                </label>
+
+                <label class="role-option">
+                    <input type="radio" name="role" value="ACCOUNTANT" />
+                    <div class="role-option__body">
+                        <span class="role-option__title">Accountant</span>
+                        <span class="role-option__desc">
+                            Read-only access to accounting data and exports,
+                            after approval from an Admin or Owner.
+                        </span>
+                    </div>
+                </label>
+            </fieldset>
+
+            <div class="auth-footer">
+                <button type="submit" class="btn btn-primary">Create account</button>
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="/auth/login">Sign in</a>
+                </p>
+            </div>
+
+            <p class="auth-note">
+                By creating an account you agree that we will securely process your
+                invoicing data and encrypt sensitive fields like tax IDs.
+            </p>
+
+            <div class="auth-error" id="register-error" hidden></div>
+        </form>
+    </div>
+</section>

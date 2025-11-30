@@ -7,11 +7,14 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      ddl-auto: none
     show-sql: ${SPRING_JPA_SHOW_SQL:true}
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 management:
   endpoints:
@@ -29,5 +32,16 @@ management:
     readinessstate:
       enabled: true
 
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET}
+    expiration-seconds: ${APP_JWT_EXPIRATION_SECONDS:3600}
+  crypto:
+    secret: ${APP_CRYPTO_SECRET}
+
 server:
   port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    org.flywaydb: INFO
