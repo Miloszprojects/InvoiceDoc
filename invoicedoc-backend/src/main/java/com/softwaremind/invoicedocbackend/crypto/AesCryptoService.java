@@ -20,8 +20,8 @@ public class AesCryptoService implements CryptoService {
 
     private static final String ALGO = "AES";
     private static final String TRANSFORMATION = "AES/GCM/NoPadding";
-    private static final int IV_LENGTH = 12;           // 96 bits – recommended for GCM
-    private static final int TAG_LENGTH_BIT = 128;     // auth tag length
+    private static final int IV_LENGTH = 12;
+    private static final int TAG_LENGTH_BIT = 128;
 
     @Value("${app.crypto.secret:change-me-secret}")
     private String secret;
@@ -31,8 +31,7 @@ public class AesCryptoService implements CryptoService {
 
     @PostConstruct
     void init() {
-        // Still a simple key; ideally derive with PBKDF2 from a password.
-        byte[] keyBytes = Arrays.copyOf(secret.getBytes(StandardCharsets.UTF_8), 16); // 128-bit key
+        byte[] keyBytes = Arrays.copyOf(secret.getBytes(StandardCharsets.UTF_8), 16);
         this.secretKeySpec = new SecretKeySpec(keyBytes, ALGO);
     }
 
@@ -49,7 +48,6 @@ public class AesCryptoService implements CryptoService {
 
             byte[] cipherBytes = cipher.doFinal(plain.getBytes(StandardCharsets.UTF_8));
 
-            // prepend IV to ciphertext
             ByteBuffer byteBuffer = ByteBuffer.allocate(iv.length + cipherBytes.length);
             byteBuffer.put(iv);
             byteBuffer.put(cipherBytes);
