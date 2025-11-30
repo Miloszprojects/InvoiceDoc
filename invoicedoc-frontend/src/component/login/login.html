@@ -1,0 +1,53 @@
+<section class="auth-layout">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Sign in to InvoiceApp</h1>
+            <p>
+                Access your organisations, invoices and team in one place.
+            </p>
+        </div>
+
+        <p id="login-info" class="auth-info" hidden></p>
+
+        <form class="auth-form" id="login-form" novalidate>
+            <div class="auth-grid auth-grid--single">
+                <div class="auth-field">
+                    <label for="login-email">Work email</label>
+                    <input
+                            id="login-email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                    />
+                </div>
+
+                <div class="auth-field">
+                    <label for="login-password">Password</label>
+                    <input
+                            id="login-password"
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            required
+                    />
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+                <p class="auth-switch">
+                    New to InvoiceApp?
+                    <a href="/auth/register">Create account</a>
+                </p>
+            </div>
+
+            <p class="auth-note">
+                Having trouble signing in? Check with your organisation owner or
+                accountant if your access is still active.
+            </p>
+
+            <div class="auth-error" id="login-error" hidden></div>
+        </form>
+    </div>
+</section>
