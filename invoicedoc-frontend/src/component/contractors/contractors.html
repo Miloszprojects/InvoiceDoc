@@ -1,0 +1,275 @@
+<div class="contractors-shell">
+    <header class="contractors-header">
+        <div>
+            <p class="contractors-eyebrow">Contractors</p>
+            <h1 class="contractors-title">Your clients &amp; suppliers</h1>
+            <p class="contractors-subtitle">
+                Save contractor details once and reuse them on every invoice.
+            </p>
+        </div>
+
+        <div class="contractors-header-actions">
+            <div class="contractors-search">
+                <input
+                        id="contractors-search"
+                        type="search"
+                        placeholder="Search by name..."
+                        autocomplete="off"
+                />
+            </div>
+            <button type="button" id="contractors-add-btn" class="btn btn-primary">
+                + Add contractor
+            </button>
+        </div>
+    </header>
+
+    <div class="contractors-layout">
+        <section class="contractors-list-card">
+            <header class="contractors-list-header">
+                <span class="col-name">Name</span>
+                <span class="col-type">Type</span>
+                <span class="col-id">NIP / PESEL</span>
+                <span class="col-city">City</span>
+                <span class="col-fav">Favourite</span>
+            </header>
+
+            <div class="contractors-list-body" data-contractors-list>
+                <p class="contractors-empty">Loading contractors...</p>
+            </div>
+        </section>
+
+        <section class="contractors-form-card">
+            <header class="contractors-form-header">
+                <h2 class="contractors-form-title" data-form-title>Edit contractor</h2>
+                <p class="contractors-form-subtitle" data-form-subtitle>
+                    Select a contractor from the list or add a new one.
+                </p>
+            </header>
+
+            <form id="contractor-form" novalidate>
+                <fieldset class="contractors-fieldset">
+                    <legend>Basic details</legend>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="contractor-name">
+                                Name / company name
+                                <span class="field-required">*</span>
+                            </label>
+                            <input
+                                    id="contractor-name"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="organization"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-type">
+                                Type
+                                <span class="field-required">*</span>
+                            </label>
+                            <select
+                                    id="contractor-type"
+                                    class="contractors-input"
+                            >
+                                <option value="COMPANY">Company</option>
+                                <option value="PERSON">Person</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="contractor-nip">
+                                NIP
+                                <span
+                                        class="field-required"
+                                        data-nip-required-indicator
+                                >*</span>
+                                <span
+                                        class="field-optional"
+                                        data-nip-optional-indicator
+                                >(optional)</span>
+                            </label>
+                            <input
+                                    id="contractor-nip"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="off"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-pesel">
+                                PESEL <span class="field-optional">(optional)</span>
+                            </label>
+                            <input
+                                    id="contractor-pesel"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="off"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="contractors-fieldset">
+                    <legend>Address</legend>
+
+                    <div class="field-row">
+                        <div class="field field-grow">
+                            <label for="contractor-street">
+                                Street
+                                <span class="field-required">*</span>
+                            </label>
+                            <input
+                                    id="contractor-street"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="address-line1"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-building">
+                                Building / flat
+                            </label>
+                            <input
+                                    id="contractor-building"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="address-line2"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="contractor-postal">
+                                Postal code
+                                <span class="field-required">*</span>
+                            </label>
+                            <input
+                                    id="contractor-postal"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="postal-code"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-city">
+                                City
+                                <span class="field-required">*</span>
+                            </label>
+                            <input
+                                    id="contractor-city"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="address-level2"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-country">
+                                Country
+                                <span class="field-required">*</span>
+                            </label>
+                            <input
+                                    id="contractor-country"
+                                    class="contractors-input"
+                                    type="text"
+                                    autocomplete="country-name"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="contractors-fieldset">
+                    <legend>Contact &amp; flags</legend>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="contractor-email">
+                                Email <span class="field-optional">(optional)</span>
+                            </label>
+                            <input
+                                    id="contractor-email"
+                                    class="contractors-input"
+                                    type="email"
+                                    autocomplete="email"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label for="contractor-phone">
+                                Phone <span class="field-optional">(optional)</span>
+                            </label>
+                            <input
+                                    id="contractor-phone"
+                                    class="contractors-input"
+                                    type="tel"
+                                    autocomplete="tel"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field-row field-row--tight">
+                        <label class="checkbox">
+                            <input
+                                    id="contractor-favorite"
+                                    type="checkbox"
+                            />
+                            <span>Mark as favourite</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="contractors-form-footer">
+                    <div class="contractors-messages">
+                        <p
+                                id="contractor-error"
+                                class="contractors-message contractors-message--error"
+                                hidden
+                        ></p>
+                        <p
+                                id="contractor-success"
+                                class="contractors-message contractors-message--success"
+                                hidden
+                        ></p>
+                    </div>
+
+                    <div class="contractors-buttons">
+                        <button
+                                type="button"
+                                id="contractor-delete-btn"
+                                class="btn btn-ghost"
+                                hidden
+                        >
+                            Delete
+                        </button>
+
+                        <div class="contractors-buttons-main">
+                            <button
+                                    type="button"
+                                    id="contractor-cancel-btn"
+                                    class="btn btn-secondary"
+                                    hidden
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                    type="submit"
+                                    id="contractor-save-btn"
+                                    class="btn btn-primary"
+                            >
+                                Save contractor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
