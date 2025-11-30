@@ -1,0 +1,212 @@
+<section class="org-settings">
+    <header class="org-settings__header">
+        <h1>Organisation settings</h1>
+        <p>
+            Set up seller profiles used on invoices issued by this organisation.
+        </p>
+    </header>
+
+    <div class="org-settings__layout">
+        <div class="org-settings__list">
+            <div class="org-settings__list-header">
+                <div>
+                    <h2>Seller profiles</h2>
+                    <p class="org-settings__list-subtitle">
+                        You can create multiple profiles e.g. for different branches or
+                        bank accounts.
+                    </p>
+                </div>
+
+                <div class="org-settings__search">
+                    <input
+                            id="seller-search"
+                            class="org-input org-input--search"
+                            type="text"
+                            placeholder="Search by name or NIP..."
+                            autocomplete="off"
+                    />
+                </div>
+            </div>
+
+            <div class="org-settings__list-body" data-seller-list>
+            </div>
+        </div>
+
+        <form id="seller-form" class="org-settings__form" novalidate>
+            <div class="org-settings__form-header">
+                <h2 data-form-title>Add seller profile</h2>
+                <p data-form-subtitle>
+                    Fill in the details of your company as they should appear on
+                    invoices.
+                </p>
+            </div>
+
+            <div class="org-settings__section">
+                <h3 class="org-settings__section-title">Basic data</h3>
+
+                <div class="org-settings__grid">
+                    <div class="org-field org-field--full">
+                        <label for="seller-name">
+                            Company name <span>*</span>
+                        </label>
+                        <input
+                                id="seller-name"
+                                class="org-input"
+                                type="text"
+                                autocomplete="organization"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-nip">
+                            NIP <span>*</span> <small>(10 digits)</small>
+                        </label>
+                        <input
+                                id="seller-nip"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-regon">REGON (optional)</label>
+                        <input
+                                id="seller-regon"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-krs">KRS (optional)</label>
+                        <input
+                                id="seller-krs"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-bank-name">
+                            Bank name <span>*</span>
+                        </label>
+                        <input
+                                id="seller-bank-name"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-bank">
+                            Bank account (IBAN) <span>*</span>
+                        </label>
+                        <input
+                                id="seller-bank"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-settings__section">
+                <h3 class="org-settings__section-title">Address</h3>
+
+                <div class="org-settings__grid">
+                    <div class="org-field org-field--full">
+                        <label for="seller-street">Street <span>*</span></label>
+                        <input id="seller-street" class="org-input" type="text" />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-building">Building / flat</label>
+                        <input
+                                id="seller-building"
+                                class="org-input"
+                                type="text"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-postal">
+                            Postal code <span>*</span>
+                        </label>
+                        <input id="seller-postal" class="org-input" type="text" />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-city">City <span>*</span></label>
+                        <input id="seller-city" class="org-input" type="text" />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-country">Country <span>*</span></label>
+                        <input id="seller-country" class="org-input" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-settings__section">
+                <h3 class="org-settings__section-title">
+                    Defaults for invoices
+                </h3>
+
+                <div class="org-settings__grid">
+                    <div class="org-field">
+                        <label for="seller-currency">
+                            Default currency <span>*</span>
+                        </label>
+                        <input
+                                id="seller-currency"
+                                class="org-input"
+                                type="text"
+                                placeholder="PLN"
+                        />
+                    </div>
+
+                    <div class="org-field">
+                        <label for="seller-payment-term">
+                            Default payment term (days) <span>*</span>
+                        </label>
+                        <input
+                                id="seller-payment-term"
+                                class="org-input"
+                                type="number"
+                                min="1"
+                                step="1"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div
+                    class="org-info-banner org-info-banner--owner-only"
+                    id="seller-owner-info"
+                    hidden
+            >
+                Only <strong>Owners and Admins</strong> of this organisation can add or
+                delete seller profiles. Existing profiles are still visible to
+                Accountants.
+            </div>
+
+            <div class="org-settings__footer">
+                <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="seller-save-btn"
+                >
+                    Save seller profile
+                </button>
+            </div>
+
+            <div class="org-message org-message--error" id="seller-error" hidden>
+            </div>
+            <div
+                    class="org-message org-message--success"
+                    id="seller-success"
+                    hidden
+            ></div>
+        </form>
+    </div>
+</section>
